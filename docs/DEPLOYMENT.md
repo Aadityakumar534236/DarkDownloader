@@ -1,5 +1,17 @@
 # Deployment Guide
 
+## Cloudflare Pages Static Frontend
+
+From the repository root on Windows, render the existing Jinja pages without starting Flask:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\export_static.py
+```
+
+The generated, Git-trackable output is `site/`. In Cloudflare Pages Git settings, use Framework preset `None`, root directory `/`, build command `exit 0`, and build output directory `site`. Cloudflare Pages serves matching `.html` files at extensionless routes (for example, `download.html` at `/download`) and recognizes top-level `404.html` as the custom not-found page. See the [official Pages serving documentation](https://developers.cloudflare.com/pages/configuration/serving-pages/).
+
+This deploys only the static frontend. Browser-local preferences and history remain available, but API-backed analysis, provider lookup, diagnostics, and queue submission require a separately hosted, reachable HTTPS Flask backend. The local Windows Flask server is not made public by deploying these files. No real media download implementation is enabled.
+
 ## Local Production-Like Run
 
 On Linux:

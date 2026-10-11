@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09080d">
+  <meta name="dd-static-export" content="true">
+  <title>Help and diagnostics · DarkDownloader</title>
+  <script src="/static/js/theme-init.js"></script>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/static/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="page-help">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="DarkDownloader home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 5v17m-7-7 7 7 7-7M7 26h18"/></svg></span>
+        <span class="brand-text">Dark<span>Downloader</span></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primaryNav"><span></span><span></span><span></span></button>
+      <nav id="primaryNav" class="primary-nav" aria-label="Main navigation">
+        <a href="/" >Home</a>
+        <a href="/download" >Download</a>
+        <a href="/batch" >Batch</a>
+        <a href="/history" >History</a>
+        <details class="more-menu" data-active="true">
+          <summary>More</summary>
+          <div class="more-panel"><a href="/sources">Sources</a><a href="/settings">Settings</a><a href="/help">Help</a></div>
+        </details>
+      </nav>
+      <button id="themeToggle" class="utility-button" type="button" aria-pressed="false" title="Toggle color theme">Light</button>
+    </div>
+  </header>
+  <aside id="staticApiNotice" class="static-api-notice" role="status" hidden>Static frontend only: API-backed features need a reachable HTTPS Flask backend. Media downloads are not implemented.</aside>
+  <main id="mainContent" class="page-shell page-transition">
+<section class="page-intro"><p class="eyebrow">06 / SUPPORT</p><h1>Need a hand?</h1><p class="hero-subtitle">Check the local app connection and provider registry, then review the project guidance.</p></section>
+<section class="content-section"><div class="section-heading"><div><h2>Diagnostics</h2><p class="helper-text">Checks do not expose secrets.</p></div><button id="runDiagnostics" type="button">Run checks</button></div><div id="diagnosticsList" class="diagnostics-grid"></div></section>
+<div class="tool-grid compact-grid"><a class="tool-link" href="/privacy"><span><strong>Privacy</strong><small>Local storage and retention</small></span><b>↗</b></a><a class="tool-link" href="/copyright"><span><strong>Copyright</strong><small>Responsible source use</small></span><b>↗</b></a></div>
+</main>
+  <footer class="site-footer">
+    <a class="footer-brand" href="/">DarkDownloader</a>
+    <span>Permitted sources only.</span>
+    <nav aria-label="Footer"><a href="/sources">Sources</a><a href="/privacy">Privacy</a><a href="/copyright">Copyright</a><a href="/help">Help</a></nav>
+  </footer>
+  <script src="/static/js/app.js" defer></script>
+</body>
+</html>

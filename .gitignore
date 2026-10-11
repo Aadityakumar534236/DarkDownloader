@@ -9,6 +9,7 @@ __pycache__/
 htmlcov/
 dist/
 build/
+# Cloudflare Pages export in site/ is intentionally trackable for deployment.
 *.log
 downloads/
 tmp/

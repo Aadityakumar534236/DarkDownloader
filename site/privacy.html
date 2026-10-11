@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09080d">
+  <meta name="dd-static-export" content="true">
+  <title>Privacy · DarkDownloader</title>
+  <script src="/static/js/theme-init.js"></script>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/static/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="page-privacy">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="DarkDownloader home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 5v17m-7-7 7 7 7-7M7 26h18"/></svg></span>
+        <span class="brand-text">Dark<span>Downloader</span></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primaryNav"><span></span><span></span><span></span></button>
+      <nav id="primaryNav" class="primary-nav" aria-label="Main navigation">
+        <a href="/" >Home</a>
+        <a href="/download" >Download</a>
+        <a href="/batch" >Batch</a>
+        <a href="/history" >History</a>
+        <details class="more-menu" data-active="true">
+          <summary>More</summary>
+          <div class="more-panel"><a href="/sources">Sources</a><a href="/settings">Settings</a><a href="/help">Help</a></div>
+        </details>
+      </nav>
+      <button id="themeToggle" class="utility-button" type="button" aria-pressed="false" title="Toggle color theme">Light</button>
+    </div>
+  </header>
+  <aside id="staticApiNotice" class="static-api-notice" role="status" hidden>Static frontend only: API-backed features need a reachable HTTPS Flask backend. Media downloads are not implemented.</aside>
+  <main id="mainContent" class="page-shell page-transition">
+<section class="page-intro"><p class="eyebrow">PRIVACY</p><h1>Your data stays yours.</h1></section>
+<article class="prose content-section"><h2>Local storage</h2><p>DarkDownloader stores preferences and queue URLs in local browser storage so queued work can be submitted later. History records only the source hostname for new entries. Clear queue and history when no longer needed. Browser storage is not synchronized across devices and can be lost when site data is cleared.</p><h2>Server requests</h2><p>When you analyze a URL or submit a queue job, the URL is sent to the configured DarkDownloader server for provider matching. Do not submit private or signed URLs. The initial application has no account system or database.</p><h2>Security</h2><p>The server validates public HTTP and HTTPS addresses and blocks local and private network destinations. Hosted environments may impose additional networking limits. Never use the service to access content or systems without authorization.</p></article>
+</main>
+  <footer class="site-footer">
+    <a class="footer-brand" href="/">DarkDownloader</a>
+    <span>Permitted sources only.</span>
+    <nav aria-label="Footer"><a href="/sources">Sources</a><a href="/privacy">Privacy</a><a href="/copyright">Copyright</a><a href="/help">Help</a></nav>
+  </footer>
+  <script src="/static/js/app.js" defer></script>
+</body>
+</html>

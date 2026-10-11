@@ -576,6 +576,16 @@ label {
   margin: 1rem 0 0;
   color: var(--muted);
 }
+.static-api-notice {
+  width: min(var(--max-width), calc(100% - 40px));
+  margin: 12px auto 0;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--muted);
+}
+.static-api-notice[hidden] { display: none; }
 .format-grid,
 .capability-grid,
 .preset-grid,

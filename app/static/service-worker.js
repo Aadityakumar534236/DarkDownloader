@@ -1,4 +1,4 @@
-const CACHE_NAME = "darkdownloader-shell-v2";
+const CACHE_NAME = "darkdownloader-shell-v3";
 const SHELL_ASSETS = [
   "/",
   "/download",

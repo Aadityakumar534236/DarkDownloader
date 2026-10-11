@@ -7,6 +7,7 @@
   let selectedPreset = state.settings.preset || "best";
   let apiBase = state.settings.apiBase || "";
   let isAnalyzing = false;
+  const isStaticExport = document.querySelector('meta[name="dd-static-export"]')?.content === "true";
   const activeControllers = new Map();
 
   const $ = (selector) => document.querySelector(selector);
@@ -51,6 +52,7 @@
     defaultFormat: $("#defaultFormat"),
     saveApiSettings: $("#saveApiSettings"),
     providersList: $("#providersList"),
+    staticApiNotice: $("#staticApiNotice"),
   };
 
   init();
@@ -60,6 +62,7 @@
     document.addEventListener("visibilitychange", () => document.documentElement.classList.toggle("page-hidden", document.hidden));
     document.documentElement.dataset.theme = state.settings.theme || document.documentElement.dataset.theme || "dark";
     if (elements.apiUrlInput) elements.apiUrlInput.value = apiBase;
+    if (elements.staticApiNotice) elements.staticApiNotice.hidden = !apiBase || !hasHttpsApiBase();
     if (elements.notifyToggle) elements.notifyToggle.checked = Boolean(state.settings.notifications);
     if (elements.concurrencyInput) elements.concurrencyInput.value = String(Math.max(1, Math.min(state.settings.concurrency || 1, 2)));
     if (elements.themePreference) elements.themePreference.value = state.settings.theme || "dark";
@@ -496,7 +499,7 @@
       elements.apiBadge.classList.remove("warn");
     } catch (error) {
       if (!elements.apiBadge) return;
-      elements.apiBadge.textContent = "API offline";
+      elements.apiBadge.textContent = isStaticExport && !apiBase ? "Backend not connected" : "API offline";
       elements.apiBadge.classList.add("warn");
       elements.apiBadge.classList.remove("ok");
     }
@@ -555,7 +558,17 @@
     apiBase = elements.apiUrlInput.value.trim().replace(/\/$/, "");
     state.settings.apiBase = apiBase;
     saveState();
+    if (elements.staticApiNotice) elements.staticApiNotice.hidden = !apiBase || !hasHttpsApiBase();
     refreshHealth();
+  }
+
+  function hasHttpsApiBase() {
+    try {
+      const parsed = new URL(apiBase);
+      return parsed.protocol === "https:" && !parsed.username && !parsed.password;
+    } catch (_) {
+      return false;
+    }
   }
 
   function clearSettings() {
@@ -625,6 +638,9 @@
   }
 
   async function apiFetch(path, options = {}) {
+    if (isStaticExport && (!apiBase || !hasHttpsApiBase())) {
+      throw new Error("This static site has no reachable HTTPS Flask API configured. API-backed features are unavailable here; media downloads are not implemented.");
+    }
     const response = await fetch(`${apiBase}${path}`, {
       headers: { "Content-Type": "application/json", ...(options.headers || {}) },
       ...options,

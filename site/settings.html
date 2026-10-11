@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09080d">
+  <meta name="dd-static-export" content="true">
+  <title>Settings · DarkDownloader</title>
+  <script src="/static/js/theme-init.js"></script>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/static/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="page-settings">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="DarkDownloader home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 5v17m-7-7 7 7 7-7M7 26h18"/></svg></span>
+        <span class="brand-text">Dark<span>Downloader</span></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primaryNav"><span></span><span></span><span></span></button>
+      <nav id="primaryNav" class="primary-nav" aria-label="Main navigation">
+        <a href="/" >Home</a>
+        <a href="/download" >Download</a>
+        <a href="/batch" >Batch</a>
+        <a href="/history" >History</a>
+        <details class="more-menu" data-active="true">
+          <summary>More</summary>
+          <div class="more-panel"><a href="/sources">Sources</a><a href="/settings">Settings</a><a href="/help">Help</a></div>
+        </details>
+      </nav>
+      <button id="themeToggle" class="utility-button" type="button" aria-pressed="false" title="Toggle color theme">Light</button>
+    </div>
+  </header>
+  <aside id="staticApiNotice" class="static-api-notice" role="status" hidden>Static frontend only: API-backed features need a reachable HTTPS Flask backend. Media downloads are not implemented.</aside>
+  <main id="mainContent" class="page-shell page-transition">
+<section class="page-intro"><p class="eyebrow">05 / PREFERENCES</p><h1>Make it yours.</h1><p class="hero-subtitle">Your preferences stay in this browser.</p></section>
+<section id="settings" class="content-section settings-page">
+  <div class="settings-group"><p class="eyebrow">Appearance</p><label for="themePreference">Color theme</label><select id="themePreference"><option value="dark">Dark</option><option value="light">Light</option></select><label for="defaultPreset">Default preset</label><select id="defaultPreset"><option value="best">Best Quality</option><option value="small">Smaller File</option><option value="audio">Audio Only</option></select><label for="defaultFormat">Preferred format</label><select id="defaultFormat"><option value="original">Original format</option><option value="mp4">MP4</option><option value="webm">WebM</option><option value="mkv">MKV</option></select></div>
+  <div class="settings-group"><p class="eyebrow">Notifications</p><label class="toggle-row"><input id="notifyToggle" type="checkbox"> Enable completion notifications</label><p class="helper-text">Permission is requested only when you enable this setting.</p><button id="saveSettings" type="button">Save preferences</button></div>
+  <div class="settings-group"><p class="eyebrow">Local data</p><p class="helper-text">History and preferences are stored in this browser. Clearing browser storage removes them.</p><div class="settings-actions"><button id="clearHistory" class="secondary-action" type="button">Clear history</button><button id="clearSettings" class="text-action" type="button">Reset preferences</button></div></div>
+  <div class="settings-group"><p class="eyebrow">Connection</p><label for="apiUrlInput">API base URL</label><input id="apiUrlInput" type="url" placeholder="https://your-flask-api.example"><p class="helper-text">Use a reachable HTTPS Flask API. A local Windows server is not available to Pages visitors. This does not enable media downloads.</p><button id="saveApiSettings" class="secondary-action" type="button">Save API address</button></div>
+  <div class="settings-group" id="installation"><p class="eyebrow">Install and performance</p><p>Install from your browser menu on supported devices. Background jobs can stop if the browser closes. Reduced motion follows your device preference.</p><a href="/help">Diagnostics and help</a></div>
+</section>
+</main>
+  <footer class="site-footer">
+    <a class="footer-brand" href="/">DarkDownloader</a>
+    <span>Permitted sources only.</span>
+    <nav aria-label="Footer"><a href="/sources">Sources</a><a href="/privacy">Privacy</a><a href="/copyright">Copyright</a><a href="/help">Help</a></nav>
+  </footer>
+  <script src="/static/js/app.js" defer></script>
+</body>
+</html>

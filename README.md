@@ -54,6 +54,22 @@ Open `http://127.0.0.1:5000`. The project also includes `Start DarkDownloader.ba
 python -m venv .venv
 ```
 
+### Export a Cloudflare Pages static site
+
+With the project virtual environment installed, run this from PowerShell in the repository:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\export_static.py
+```
+
+On Windows, `Export DarkDownloader Site.bat` runs the same export by double-click.
+
+The exporter renders the existing Jinja templates without starting Flask and writes the static site to `site/`. It only replaces a `site/` directory carrying its generated-output marker; an unrelated nonempty directory is left untouched. The `site/` directory is intentionally not ignored and may be committed for Pages deployment.
+
+Suggested Pages Git settings: Framework preset **None**, root directory `/`, build command `exit 0`, output directory `site`. The `.html` outputs use Cloudflare Pages clean URLs, so links such as `/download`, `/batch`, and `/settings` remain unchanged. Pages documents that matching `.html` files are available at extensionless routes and that a top-level `404.html` is used for not-found requests: https://developers.cloudflare.com/pages/configuration/serving-pages/.
+
+The export is frontend-only. Theme and browser-local history/queue editing remain local browser features, but analysis, provider lookup, diagnostics, and submitted queue jobs need a separately reachable HTTPS Flask API. Media downloads are not implemented. The static export explicitly reports this limitation instead of returning sample results.
+
 ### Tests
 
 ```powershell
