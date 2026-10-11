@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-intro"><p class="eyebrow">01 / URL WORKSPACE</p><h1>Bring a link.</h1><p class="hero-subtitle">We’ll check the source and show only information and actions the provider actually supports.</p></section>
+<section id="workspace" class="workspace-card download-workspace" aria-label="Analyze a media URL">
+  <div class="workspace-status"><span id="apiBadge" class="status-pill">Checking connection</span><span class="trust-note">Provider permissions are respected</span></div>
+  <form id="analyzeForm" class="url-form" novalidate>
+    <label for="urlInput">Media URL</label>
+    <div class="link-control"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1M14 11a5 5 0 0 0-7.1 0l-2 2A5 5 0 0 0 12 20.1l1.1-1.1"/></svg></span>
+      <input id="urlInput" name="url" type="url" placeholder="Paste a supported media link..." autocomplete="off" required>
+      <button id="clearButton" class="icon-action" type="button" aria-label="Clear URL">Clear</button>
+      <button id="pasteButton" class="secondary-action" type="button">Paste</button>
+      <button id="analyzeButton" class="primary-action" type="submit"><span id="analyzeButtonText">Analyze link</span><span class="spinner" aria-hidden="true"></span></button>
+    </div>
+    <p id="urlError" class="field-message" role="alert"></p>
+    <p class="helper-text">Only supported sources with permitted capabilities can be processed.</p>
+  </form>
+  <div id="resultState" class="result-state empty" aria-live="polite"><div class="empty-graphic" aria-hidden="true"></div><div><h2>Ready when you are</h2><p>Analyze a link to see provider information and available formats.</p></div></div>
+  <article id="analysisResult" class="analysis-card hidden" aria-live="polite"></article>
+  <section id="presetPanel" class="preset-panel hidden" aria-label="Format presets">
+    <div class="section-kicker"><p class="eyebrow">Choose an option</p><h2>Presets</h2></div>
+    <div class="preset-grid"><button class="preset active" data-preset="best" type="button"><strong>Best Quality</strong><span>Highest verified format.</span></button><button class="preset" data-preset="small" type="button"><strong>Smaller File</strong><span>Smallest known size.</span></button><button class="preset" data-preset="audio" type="button"><strong>Audio Only</strong><span>Only when an audio format exists.</span></button></div>
+    <details class="advanced-options"><summary>Advanced options</summary><div class="option-grid"><label>Video format<select disabled><option>Unavailable without a real media adapter</option></select></label><label>Audio format<select disabled><option>Unavailable without a real media adapter</option></select></label><label>Quality<select disabled><option>Uses only formats returned by provider</option></select></label></div><p class="helper-text">Conversion and merging remain disabled until a permitted implementation is available.</p></details>
+    <div class="operation-row"><button id="addToQueue" type="button">Add to batch queue</button><button id="resetButton" class="secondary-action" type="button">Reset</button></div>
+  </section>
+</section>
+{% endblock %}

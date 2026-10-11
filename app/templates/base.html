@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09080d">
+  <title>{{ title }} · DarkDownloader</title>
+  <script src="/static/js/theme-init.js"></script>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/static/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="page-{{ page }}">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="DarkDownloader home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 5v17m-7-7 7 7 7-7M7 26h18"/></svg></span>
+        <span class="brand-text">Dark<span>Downloader</span></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primaryNav"><span></span><span></span><span></span></button>
+      <nav id="primaryNav" class="primary-nav" aria-label="Main navigation">
+        <a href="/" {% if page == 'home' %}aria-current="page"{% endif %}>Home</a>
+        <a href="/download" {% if page == 'download' %}aria-current="page"{% endif %}>Download</a>
+        <a href="/batch" {% if page == 'batch' %}aria-current="page"{% endif %}>Batch</a>
+        <a href="/history" {% if page == 'history' %}aria-current="page"{% endif %}>History</a>
+        <details class="more-menu" {% if page in ['sources','settings','help','privacy','copyright'] %}data-active="true"{% endif %}>
+          <summary>More</summary>
+          <div class="more-panel"><a href="/sources">Sources</a><a href="/settings">Settings</a><a href="/help">Help</a></div>
+        </details>
+      </nav>
+      <button id="themeToggle" class="utility-button" type="button" aria-pressed="false" title="Toggle color theme">Light</button>
+    </div>
+  </header>
+  <main id="mainContent" class="page-shell page-transition">{% block content %}{% endblock %}</main>
+  <footer class="site-footer">
+    <a class="footer-brand" href="/">DarkDownloader</a>
+    <span>Permitted sources only.</span>
+    <nav aria-label="Footer"><a href="/sources">Sources</a><a href="/privacy">Privacy</a><a href="/copyright">Copyright</a><a href="/help">Help</a></nav>
+  </footer>
+  <script src="/static/js/app.js" defer></script>
+</body>
+</html>

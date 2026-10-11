@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-intro"><p class="eyebrow">PRIVACY</p><h1>Your data stays yours.</h1></section>
+<article class="prose content-section"><h2>Local storage</h2><p>DarkDownloader stores preferences and queue URLs in local browser storage so queued work can be submitted later. History records only the source hostname for new entries. Clear queue and history when no longer needed. Browser storage is not synchronized across devices and can be lost when site data is cleared.</p><h2>Server requests</h2><p>When you analyze a URL or submit a queue job, the URL is sent to the configured DarkDownloader server for provider matching. Do not submit private or signed URLs. The initial application has no account system or database.</p><h2>Security</h2><p>The server validates public HTTP and HTTPS addresses and blocks local and private network destinations. Hosted environments may impose additional networking limits. Never use the service to access content or systems without authorization.</p></article>
+{% endblock %}

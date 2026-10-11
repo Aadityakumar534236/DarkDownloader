@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-intro"><p class="eyebrow">02 / BATCH PROCESSING</p><h1>Queue up links.</h1><p class="hero-subtitle">Add supported URLs, review each entry, and run a small client-side queue with a maximum of two concurrent jobs.</p></section>
+<section id="queue" class="content-section queue-page">
+  <p class="notice-text">Queue runs provider analysis only in this release. No media download adapter is enabled, so this queue will not transfer files.</p>
+  <label for="batchInput">Media URLs <span class="label-note">One URL per line</span></label>
+  <textarea id="batchInput" rows="5" maxlength="8192" placeholder="https://example.com/media...&#10;https://another-source.example/item"></textarea>
+  <div class="batch-actions"><button id="addBatch" type="button">Add links</button><button id="pasteBatch" class="secondary-action" type="button">Paste</button><button id="runQueue" class="secondary-action" type="button">Run queue</button><button id="clearQueue" class="text-action" type="button">Clear queue</button></div>
+  <p id="batchMessage" class="field-message" role="status"></p>
+  <div class="queue-controls"><label for="concurrencyInput">Concurrent jobs</label><input id="concurrencyInput" type="number" min="1" max="2" value="1"><span class="helper-text">Default one; maximum two.</span></div>
+  <div class="drop-zone" id="dropZone" tabindex="0">Drop a small text file containing URLs here</div>
+  <div id="queueList" class="list-empty">No queued jobs yet. Add a URL above to begin.</div>
+</section>
+{% endblock %}

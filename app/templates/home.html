@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="home-hero" aria-labelledby="heroTitle">
+  <div class="home-copy">
+    <p class="eyebrow hero-eyebrow">A quieter way to work with media</p>
+    <h1 id="heroTitle">Your media.<br><span>Your way.</span></h1>
+    <p class="hero-subtitle">One focused workspace for supported sources, verified formats, and downloads you’re permitted to make.</p>
+    <a class="primary-action explore-button" href="/download">Explore tools <span aria-hidden="true">↗</span></a>
+    <p class="hero-caption">Private by design <i></i> No accounts <i></i> No fabricated results</p>
+  </div>
+  <div class="hero-art" aria-label="Abstract violet media ribbon artwork" role="img">
+    <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+    <div class="ribbon ribbon-back"></div><div class="ribbon ribbon-front"></div><div class="art-core"></div>
+    <span class="art-label label-top">SOURCE / SIGNAL</span><span class="art-label label-bottom">01 — MEDIA WORKSPACE</span>
+  </div>
+</section>
+<section class="tool-section" aria-labelledby="toolsTitle">
+  <div class="section-heading"><div><p class="eyebrow">The workspace</p><h2 id="toolsTitle">Tools, without the noise.</h2></div><span class="muted-note">Choose a starting point</span></div>
+  <div class="tool-grid">
+    <a class="tool-link tool-primary" href="/download"><span class="tool-index">01</span><span><strong>Download from URL</strong><small>Analyze a supported link and inspect real available options.</small></span><b aria-hidden="true">↗</b></a>
+    <a class="tool-link" href="/batch"><span class="tool-index">02</span><span><strong>Batch processing</strong><small>Review multiple links in a local, carefully limited queue.</small></span><b aria-hidden="true">↗</b></a>
+    <a class="tool-link" href="/sources"><span class="tool-index">03</span><span><strong>Supported sources</strong><small>See provider capabilities and honest limitations.</small></span><b aria-hidden="true">↗</b></a>
+  </div>
+</section>
+{% endblock %}

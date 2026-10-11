@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-intro"><p class="eyebrow">03 / LOCAL ACTIVITY</p><h1>Your history.</h1><p class="hero-subtitle">Activity is stored only in this browser and does not sync across devices.</p></section>
+<section id="history" class="content-section">
+  <div class="history-tools"><label class="search-field" for="historySearch">Search history<input id="historySearch" type="search" placeholder="Search by URL or provider"></label><label for="historyFilter">Status<select id="historyFilter"><option value="all">All statuses</option><option value="analyzed">Analyzed</option><option value="ready">Ready</option><option value="failed">Failed</option><option value="completed">Completed</option></select></label><button id="clearHistory" class="secondary-action" type="button">Clear history</button></div>
+  <div class="stats-grid" aria-label="Local statistics"><div><span id="statTotal">0</span><small>Total jobs</small></div><div><span id="statCompleted">0</span><small>Ready or analyzed</small></div><div><span id="statFailed">0</span><small>Failed</small></div><div><span id="statBytes">0 B</span><small>Known bytes</small></div></div>
+  <div id="historyList" class="list-empty">No local history yet.</div>
+</section>
+{% endblock %}
